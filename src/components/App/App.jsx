@@ -23,7 +23,7 @@ const App = () => {
     };
 
     if (checkContacts(name)) {
-      return alert(`${name} is already in contacts list`);
+      return alert(`${name} is already in contacts list!`);
     }
 
     setContacts(prevState => [...prevState, contact]);
