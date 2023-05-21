@@ -7,7 +7,7 @@ import { Container, Title, SubTitle } from '../App/App.styled';
 
 const App = () => {
   const [contacts, setContacts] = useState(() => {
-    return JSON.parse(localStorage.getItem('contacts')) ?? '';
+    return JSON.parse(localStorage.getItem('contacts')) ?? [];
   });
   const [filter, setFilter] = useState('');
 
@@ -46,10 +46,11 @@ const App = () => {
 
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLocaleLowerCase();
-
-    return contacts.filter(contact =>
-      contact.name.toLocaleLowerCase().includes(normalizedFilter)
-    );
+    if (contacts) {
+      return contacts.filter(contact =>
+        contact.name.toLocaleLowerCase().includes(normalizedFilter)
+      );
+    }
   };
 
   return (
