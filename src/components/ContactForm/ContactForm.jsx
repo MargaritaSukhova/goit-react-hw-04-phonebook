@@ -7,9 +7,11 @@ const ContactForm = ({ onSubmit }) => {
   const [number, setNumber] = useState('');
 
   const handleInputChange = e => {
-    if (e.currentTarget.name === 'name') setName(e.currentTarget.value);
-    else if (e.currentTarget.name === 'number')
+    if (e.currentTarget.name === 'name') {
+      setName(e.currentTarget.value);
+    } else if (e.currentTarget.name === 'number') {
       setNumber(e.currentTarget.value);
+    }
   };
 
   const handleContactSave = e => {
